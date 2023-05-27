@@ -1,4 +1,4 @@
-export const DEFAULT_CELL_SIZE = 20
+export const DEFAULT_CELL_SIZE = 10
 
 export const BOARD_WIDTH = document.documentElement.offsetWidth
 export const BOARD_HEIGHT = document.documentElement.offsetHeight

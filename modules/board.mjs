@@ -15,7 +15,7 @@ export class Board {
     #gridColor = DEFAULT_GRID_COLOR
     #backgroundColor = BOARD_BACKGROUND_COLOR
 
-    #grid = true
+    #grid = false
 
     constructor(canvas) {
         this.canvas = canvas
