@@ -48,7 +48,7 @@ export class Game {
 
         setTimeout(() => {
             requestAnimationFrame(this.launch)
-        }, 100)
+        }, 40)
     }
 
     firstGeneration() {
