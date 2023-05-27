@@ -4,12 +4,14 @@ import { Cell } from "./cell.mjs"
 export class Game {
     #cells = []
 
-    #pause = false
+    #pause = true
 
     constructor(canvas) {
         this.canvas = canvas
 
         this.board = new Board(this.canvas)
+
+        this.board.drawBackground()
 
         this.launch = this.launch.bind(this)
 
@@ -44,7 +46,9 @@ export class Game {
             }
         }
 
-        requestAnimationFrame(this.launch)
+        setTimeout(() => {
+            requestAnimationFrame(this.launch)
+        }, 100)
     }
 
     firstGeneration() {
@@ -86,7 +90,11 @@ export class Game {
         this.#cells[x][y].neighbors = aliveNeighborsNumber
     }
 
-    reset() {
+    start() {
+        this.#pause = false
+    }
+
+    stop() {
         this.#cells = []
     }
 
@@ -101,17 +109,16 @@ export class Game {
                     this.board.grid = !this.board.grid
                     break
                 case 'KeyN':
-                    this.reset()
-                    this.launch()
+                    this.stop()
                     break
             }
         })
 
-        addEventListener('click', () => {
+        this.canvas.addEventListener('click', () => {
             this.#pause = !this.#pause
         })
 
-        addEventListener('touchend', () => {
+        this.canvas.addEventListener('touchend', () => {
             this.#pause = !this.#pause
         })
     }

@@ -1,3 +1,7 @@
+:root {
+  --color-green: rgb(0, 255, 0);
+}
+
 html, body {
   display: flex;
   margin: 0;
@@ -5,4 +9,71 @@ html, body {
   border: none;
   max-height: 100vh;
   height: 100%;
+}
+
+body {
+  font-family: monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+dialog {
+  top: 20vh;
+  padding: 1.6rem 2rem;
+  width: 100%;
+  max-width: 400px;
+  border: 0.3rem solid var(--color-green) !important;
+  background-color: black;
+  color: var(--color-green);
+}
+
+dialog h1 {
+  margin: 0 0 1rem;
+  font-size: 2.5rem;
+}
+
+dialog h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+dialog dl {
+  margin-bottom: 2rem;
+}
+
+dialog dt {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+dialog dd {
+  margin: 0 0 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+dialog footer {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+dialog button {
+  appearance: none;
+  font-size: 1rem;
+  font-weight: 600;
+  height: 3rem;
+  line-height: 2rem;
+  padding: 0 1.8rem;
+  border: 0.2rem solid var(--color-green);
+  background-color: black;
+  color: var(--color-green);
+  box-shadow: .2rem .2rem 0 .2rem black, .4rem .4rem 0 .2rem var(--color-green);
+}
+
+dialog button:hover,
+dialog button:active {
+  background-color: var(--color-green);
+  color: black;
 }
