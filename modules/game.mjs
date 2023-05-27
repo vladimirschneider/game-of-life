@@ -1,5 +1,6 @@
 import { Board } from "./board.mjs"
 import { Cell } from "./cell.mjs"
+import {template1Coords} from "./cell-patterns.mjs";
 
 export class Game {
     #cells = []
@@ -80,7 +81,25 @@ export class Game {
             [x - 1, y + 1]
         ]
 
-        for (const [xCord, yCord] of neighborsCoords) {
+        for (const coords of neighborsCoords) {
+            let [xCord, yCord] = coords;
+
+            if (xCord < 0) {
+                xCord = this.board.size.cellNumberX - 1
+            }
+
+            if (xCord >= this.board.size.cellNumberX) {
+                xCord = 0
+            }
+
+            if (yCord < 0) {
+                yCord = this.board.size.cellNumberY - 1
+            }
+
+            if (yCord >= this.board.size.cellNumberY) {
+                yCord = 0
+            }
+
             if (this.#cells[xCord]?.[yCord]?.alive) {
                 aliveNeighborsNumber++
             }
@@ -88,6 +107,15 @@ export class Game {
         }
 
         this.#cells[x][y].neighbors = aliveNeighborsNumber
+    }
+
+    drawFromTemplate(template, x, y) {
+        const coords = template(x, y);
+
+        for (const [i, j] of coords) {
+            this.#cells[i][j].alive = true
+            this.#cells[i][j].draw()
+        }
     }
 
     start() {

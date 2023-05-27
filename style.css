@@ -2,6 +2,10 @@
   --color-green: rgb(0, 255, 0);
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   display: flex;
   margin: 0;
@@ -18,10 +22,10 @@ body {
 }
 
 dialog {
-  top: 20vh;
+  top: 0;
   padding: 1.6rem 2rem;
   width: 100%;
-  max-width: 400px;
+  max-width: 480px;
   border: 0.3rem solid var(--color-green) !important;
   background-color: black;
   color: var(--color-green);
