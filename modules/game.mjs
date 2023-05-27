@@ -110,5 +110,9 @@ export class Game {
         addEventListener('click', () => {
             this.#pause = !this.#pause
         })
+
+        addEventListener('touchend', () => {
+            this.#pause = !this.#pause
+        })
     }
 }
