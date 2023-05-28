@@ -1,6 +1,5 @@
 import { Board } from "./board.mjs"
 import { Cell } from "./cell.mjs"
-import {template1Coords} from "./cell-patterns.mjs";
 
 export class Game {
     #cells = []
